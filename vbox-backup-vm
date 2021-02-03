@@ -13,8 +13,7 @@ RUNNING=`${vbox} showvminfo "$VM" --machinereadable | grep -c 'VMState="running"
 
 if [ $RUNNING -ne 1 ]; then
   echo "Try to export VM $VM to $BACKUPFILE"
-  vbox export "$VM" -o "$BACKUPFILE" \
-    --ovf10 --manifest
+  ${vbox} export "$VM" -o "$BACKUPFILE" --ovf10 --manifest
   exit
 fi
 
